@@ -14,6 +14,9 @@ import {z} from 'zod';
 const CategorizeIssueInputSchema = z.object({
   description: z.string().describe('The description of the issue.'),
   location: z.string().describe('The location of the issue.'),
+  photoDataUri: z.string().optional().describe(
+    "A photo of the issue, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
+  ),
 });
 export type CategorizeIssueInput = z.infer<typeof CategorizeIssueInputSchema>;
 
@@ -33,10 +36,13 @@ const prompt = ai.definePrompt({
   output: {schema: CategorizeIssueOutputSchema},
   prompt: `You are an expert in categorizing civic issues.
 
-  Based on the description and location provided, determine the most appropriate category for the issue.
+  Based on the description, location, and photo provided, determine the most appropriate category for the issue.
 
   Description: {{{description}}}
   Location: {{{location}}}
+  {{#if photoDataUri}}
+  Photo: {{media url=photoDataUri}}
+  {{/if}}
 
   Respond with a JSON object that contains the category and a confidence level between 0 and 1.
   `,
