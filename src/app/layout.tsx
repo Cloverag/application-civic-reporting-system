@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <ThemeProvider>
           <LanguageProvider>
-            <div className="min-h-screen bg-background text-foreground">
+            <div className="min-h-screen bg-background text-foreground pb-16 md:pb-0">
               {children}
             </div>
             <Toaster />
