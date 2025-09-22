@@ -13,11 +13,11 @@ export function IssueCard({ issue }: { issue: Issue }) {
   const AiCategoryIcon = getCategoryIcon(issue.aiCategory);
 
   return (
-    <Card>
+    <Card className="bg-gradient-to-br from-card to-card/90 dark:from-card dark:to-card/80 shadow-lg border-primary/10 hover:shadow-primary/10 transition-shadow duration-300">
       <CardHeader>
         <CardTitle className="flex items-center gap-3 text-lg font-semibold">
-           <div className="p-2 rounded-md bg-accent">
-             <UserCategoryIcon className="w-5 h-5 text-accent-foreground" />
+           <div className="p-3 rounded-lg bg-primary/10">
+             <UserCategoryIcon className="w-6 h-6 text-primary" />
            </div>
           <span>{categoryDisplayNames[issue.category]}</span>
         </CardTitle>

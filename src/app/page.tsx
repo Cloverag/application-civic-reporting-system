@@ -24,12 +24,12 @@ export default function Home() {
     <>
       <AppHeader />
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
-          <div className="lg:col-span-1 mb-8 lg:mb-0">
-            <IssueForm onIssueSubmitted={handleIssueSubmitted} />
-          </div>
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="lg:col-span-1">
             <Dashboard issues={issues} confirmationMessage={confirmation} />
+          </div>
+          <div className="lg:col-span-1">
+            <IssueForm onIssueSubmitted={handleIssueSubmitted} />
           </div>
         </div>
       </main>

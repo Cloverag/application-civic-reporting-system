@@ -47,16 +47,16 @@ export function IssueForm({ onIssueSubmitted }: { onIssueSubmitted: (issue: Issu
       formRef.current?.reset();
       // Manually reset the Select component's display value
       if(selectTriggerRef.current) {
-        const valueNode = selectTriggerRef.current.querySelector('.text-muted-foreground');
+        const valueNode = selectTriggerRef.current.querySelector('span');
         if(valueNode) valueNode.textContent = t('form.category.label');
       }
     }
   }, [state, onIssueSubmitted, t]);
 
   return (
-    <Card className="w-full">
+    <Card className="w-full bg-gradient-to-br from-card to-card/90 dark:from-card dark:to-card/80 shadow-lg border-primary/10">
       <CardHeader>
-        <CardTitle className="font-headline">{t('form.title')}</CardTitle>
+        <CardTitle className="font-headline text-2xl border-b pb-4">{t('form.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <form ref={formRef} action={formAction} className="space-y-6">

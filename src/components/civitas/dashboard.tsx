@@ -11,7 +11,7 @@ export function Dashboard({ issues, confirmationMessage }: { issues: Issue[], co
 
   return (
     <div className="w-full space-y-6">
-      <div className="flex items-baseline justify-between">
+      <div className="flex items-baseline justify-between border-b pb-4">
         <h2 className="text-2xl font-bold tracking-tight font-headline">{t('dashboard.title')}</h2>
       </div>
 
@@ -28,7 +28,7 @@ export function Dashboard({ issues, confirmationMessage }: { issues: Issue[], co
       )}
 
       {issues.length === 0 && !confirmationMessage ? (
-        <div className="flex flex-col items-center justify-center py-12 border-2 border-dashed rounded-lg bg-card">
+        <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed rounded-lg bg-card/50">
           <p className="text-muted-foreground">{t('dashboard.empty')}</p>
         </div>
       ) : (
